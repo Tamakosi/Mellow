@@ -24,8 +24,8 @@ const QUESTIONS = [
     "Yes. Edit text and layout directly, or ask Mel for a change. Every change Mel makes can be undone.",
   ],
   ["What can I start from?", "A one-sentence prompt, a pasted outline, a document, a web page, or a blank deck."],
-  ["Which file formats can I download?", "[EXPORT FORMATS]"],
-  ["Which languages does Mellow write in?", "[SUPPORTED LANGUAGES]"],
+  ["Which file formats can I download?", "PDF on every plan, and PowerPoint (.pptx) on Pro."],
+  ["Which languages does Mellow write in?", "English for now. Bahasa Indonesia is next."],
 ];
 
 const OUTLINE = ["Why a co-op, why now", "How membership works", "What we need by spring", "How you can help"];
@@ -158,7 +158,12 @@ export default function LandingPage() {
               <div className="pb-1 text-[0.8125rem] font-semibold text-muted">4. Share it</div>
               <div className="flex items-center gap-2.5 rounded-[10px] bg-surface px-2.5 py-2 text-sm font-medium">
                 <Icon name="link" size={16} />
-                <span className="min-w-0 break-all">[YOUR-DOMAIN]/d/bike-co-op</span>
+                {/* The link may only wrap after the slash, never at the hyphens. */}
+                <span className="min-w-0">
+                  <span className="whitespace-nowrap">mellow-romeo.vercel.app/</span>
+                  <wbr />
+                  <span className="whitespace-nowrap">d/bike-co-op</span>
+                </span>
               </div>
               <div className="flex items-center gap-2.5 rounded-[10px] bg-surface px-2.5 py-2 text-sm font-medium">
                 <Icon name="play" size={14} filled />
@@ -166,7 +171,7 @@ export default function LandingPage() {
               </div>
               <div className="flex items-center gap-2.5 rounded-[10px] bg-surface px-2.5 py-2 text-sm font-medium">
                 <Icon name="file" size={16} />
-                Download as [EXPORT FORMATS]
+                Download as PDF or PowerPoint
               </div>
             </div>
           </div>
@@ -278,29 +283,29 @@ export default function LandingPage() {
           <MelDemo />
         </section>
 
-        {/* Pricing: placeholders until real plans exist */}
+        {/* Pricing: example plans for the prototype */}
         <section id="pricing" className="reveal flex flex-col gap-8">
           <Heading kicker="Pricing" title="Pick a plan when you are ready" />
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-4">
             <div className={cx(card, "flex flex-col gap-4 p-7")}>
-              <h3 className="text-lg font-semibold">[STARTER PLAN NAME]</h3>
-              <div className={h2}>[YOUR PRICE]</div>
+              <h3 className="text-lg font-semibold">Free</h3>
+              <div className={h2}>$0/month</div>
               <ul className="flex list-disc flex-col gap-1.5 pl-5 text-[0.9375rem] text-muted">
-                <li>[DECKS PER MONTH]</li>
-                <li>[SLIDES PER DECK]</li>
-                <li>[EXPORT FORMATS]</li>
+                <li>3 decks a month</li>
+                <li>Up to 15 slides per deck</li>
+                <li>PDF downloads</li>
               </ul>
               <Link href="/signup" className={cx(pill, "press mt-auto min-h-12 font-semibold")}>
                 Start with this plan
               </Link>
             </div>
             <div className="flex flex-col gap-4 rounded-[20px] border-2 border-ink bg-surface p-7">
-              <h3 className="text-lg font-semibold">[PAID PLAN NAME]</h3>
-              <div className={h2}>[YOUR PRICE]</div>
+              <h3 className="text-lg font-semibold">Pro</h3>
+              <div className={h2}>$8/month</div>
               <ul className="flex list-disc flex-col gap-1.5 pl-5 text-[0.9375rem] text-muted">
-                <li>[DECKS PER MONTH]</li>
-                <li>[SLIDES PER DECK]</li>
-                <li>[BRAND KIT AND EXTRAS]</li>
+                <li>Unlimited decks</li>
+                <li>Up to 50 slides per deck</li>
+                <li>Brand kit and PowerPoint downloads</li>
               </ul>
               <Link href="/signup" className={cx(primary, "mt-auto")}>
                 Choose this plan
@@ -356,7 +361,7 @@ export default function LandingPage() {
               </a>
             ))}
           </nav>
-          <p className="w-full text-[0.8125rem] text-muted">© [YEAR] [COMPANY NAME]</p>
+          <p className="w-full text-[0.8125rem] text-muted">© 2026 Mellow</p>
         </div>
       </footer>
     </div>

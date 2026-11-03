@@ -47,7 +47,7 @@ const START_COPY: Record<StartKind, { title: string; label: string; hint: string
   document: {
     title: "Import a document",
     label: "Choose a file",
-    hint: "PDF, Word or plain text. [MAXIMUM FILE SIZE]",
+    hint: "PDF, Word or plain text, up to 10 MB.",
     error: "Choose a file to import.",
   },
   web: {

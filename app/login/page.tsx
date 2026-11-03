@@ -64,7 +64,7 @@ export default function LoginPage() {
         intro={
           mode === "reset"
             ? "We’ll send you a link to choose a new password."
-            : `If an account exists for ${email.trim()}, a reset link is on its way. It expires in [LINK EXPIRY].`
+            : `If an account exists for ${email.trim()}, a reset link is on its way. It expires in 30 minutes.`
         }
       >
         {mode === "reset" ? (

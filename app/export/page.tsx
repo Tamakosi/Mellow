@@ -6,12 +6,12 @@ import { AskMel } from "@/components/ask-mel";
 import { Mel } from "@/components/mel";
 import { AppHeader, Avatar, Icon, Stepper, card, cx, eyebrow, panel, pill, primary } from "@/components/ui";
 
-const SHARE_LINK = "https://[YOUR-DOMAIN]/d/the-water-cycle";
+const SHARE_LINK = "https://mellow-romeo.vercel.app/d/the-water-cycle";
 
 const MEL_QUESTIONS = [
   { q: "Who can open my link?", a: "Whoever you choose above. “Anyone with the link” needs no account; “Only people I invite” asks them to log in first." },
   { q: "Can I keep editing after I share?", a: "Yes. The link always shows the latest version, so you never need to send it again." },
-  { q: "Which file types can I download?", a: "That list isn’t final yet: [EXPORT FORMATS]." },
+  { q: "Which file types can I download?", a: "PDF on every plan, and PowerPoint (.pptx) on Pro." },
 ];
 
 const ACCESS = [
@@ -132,7 +132,7 @@ export default function ExportPage() {
               <h2 id="download-title" className="text-lg font-semibold">
                 Download a file
               </h2>
-              <p className="text-[0.9375rem] text-muted">Available as [EXPORT FORMATS].</p>
+              <p className="text-[0.9375rem] text-muted">Available as PDF or PowerPoint.</p>
             </div>
             <button
               type="button"

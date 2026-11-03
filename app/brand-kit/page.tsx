@@ -21,7 +21,7 @@ type Kit = {
 type ColorKey = "background" | "text" | "accent";
 
 const SAVED: Kit = {
-  name: "[BRAND NAME]",
+  name: "Sunrise Elementary",
   background: "#F4F6F2",
   text: "#1F2A24",
   accent: "#3D5A49",

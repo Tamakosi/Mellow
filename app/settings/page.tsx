@@ -266,8 +266,8 @@ export default function SettingsPage() {
             </h2>
             <div className={cx(card, "flex flex-wrap items-center justify-between gap-4 p-6")}>
               <div>
-                <div className="font-semibold">[PLAN NAME]</div>
-                <div className="text-muted">[PLAN LIMITS] · Renews [RENEWAL DATE]</div>
+                <div className="font-semibold">Pro</div>
+                <div className="text-muted">Unlimited decks, up to 50 slides each · Renews 1 December 2026</div>
               </div>
               <Link href="/#pricing" className={pill}>
                 Compare plans

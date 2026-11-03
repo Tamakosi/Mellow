@@ -6,7 +6,7 @@ import { useSyncExternalStore } from "react";
 export type Profile = { name: string; email: string; role: string; language: string };
 
 const KEY = "mellow-profile";
-export const DEFAULT_PROFILE: Profile = { name: "[YOUR NAME]", email: "you@example.com", role: "Teacher", language: "English" };
+export const DEFAULT_PROFILE: Profile = { name: "Yuni Nugraha", email: "yuni.nugraha@example.com", role: "Teacher", language: "English" };
 
 /** `stored` is false until a saved profile has been read, so a page can re-seed its form once after loading. */
 type Snapshot = Profile & { stored: boolean };
