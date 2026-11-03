@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* Design tokens. Change `--color-accent` (and its tint) to retheme the product. */
+@theme inline {
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
+
+  --color-ground: #f4f6f2;
+  --color-surface: #ffffff;
+  --color-ink: #1f2a24;
+  --color-muted: #56635a;
+  --color-line: #e3e8df;
+  --color-line-strong: #dde3d9;
+  --color-line-select: #e6eae3;
+  --color-line-input: #7f8e85;
+  --color-divider: #edf0ea;
+  --color-dash: #c3ccbe;
+  --color-danger: #a3332b;
+  --color-accent: #bcd9c4;
+  --color-accent-tint: #e1eee4;
+  --color-accent-deep: #8fae97;
+  --color-green-deep: #3d5a49;
+  --color-sage-100: #dce9dd;
+  --color-sage-50: #edf3ec;
+
+  --shadow-xs: 0 1px 2px rgba(31, 42, 36, 0.06);
+  --shadow-soft: 0 1px 2px rgba(31, 42, 36, 0.04), 0 16px 40px rgba(31, 42, 36, 0.06);
+  --shadow-pop: 0 1px 2px rgba(31, 42, 36, 0.04), 0 16px 40px rgba(31, 42, 36, 0.14);
+}
+
+:root {
+  --dur-fast: 150ms;
+  --dur-normal: 200ms;
+  --dur-moderate: 300ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* Edge adds its own reveal and clear buttons to inputs; the password field has its own eye toggle. */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+/* Taps act at once: no waiting to see whether a double-tap zoom follows. Pinch zoom still works. */
+a,
+button,
+label,
+summary,
+select,
+[role="switch"] {
+  touch-action: manipulation;
+}
+
+/* Controls with their own pressed state (the .press scale) don't also need the grey tap flash. */
+.press {
+  -webkit-tap-highlight-color: transparent;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+button {
+  cursor: pointer;
+}
+
+::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
+
+/* ---------- Motion ---------- */
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+button,
+.press {
+  transition: scale var(--dur-fast) ease-out;
+}
+
+.lift {
+  transition:
+    translate var(--dur-fast) ease-out,
+    scale var(--dur-fast) ease-out;
+}
+
+details summary svg {
+  transition: rotate var(--dur-fast) ease-out;
+}
+
+details[open] summary svg {
+  rotate: 180deg;
+}
+
+.progress-fill {
+  transition: none;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .lift:hover {
+    translate: 0 -2px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  button:not(:disabled):not(.lift):not(.still):active,
+  .press:active {
+    scale: 0.96;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      translate: 0 12px;
+      filter: blur(4px);
+    }
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      scale: 0.96;
+      translate: 0 -8px;
+    }
+  }
+  @keyframes grow {
+    from {
+      opacity: 0;
+      scale: 0.25;
+      filter: blur(4px);
+    }
+  }
+  /* A mood change: Mel squashes slightly and settles, but never disappears. */
+  @keyframes settle {
+    from {
+      scale: 0.9;
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes soft-pulse {
+    50% {
+      opacity: 0.45;
+    }
+  }
+
+  .in {
+    animation: rise var(--dur-moderate) var(--ease-enter) backwards;
+  }
+  .d1 {
+    animation-delay: 60ms;
+  }
+  .d2 {
+    animation-delay: 120ms;
+  }
+  .d3 {
+    animation-delay: 180ms;
+  }
+  .d4 {
+    animation-delay: 240ms;
+  }
+  .reply {
+    animation-delay: 300ms;
+  }
+  .pop {
+    animation: pop var(--dur-normal) var(--ease-standard) backwards;
+    transform-origin: top right;
+  }
+  .fade {
+    animation: fade var(--dur-fast) ease-out backwards;
+  }
+  .grow-in {
+    animation: grow var(--dur-moderate) var(--ease-standard) backwards;
+  }
+  .settle {
+    animation: settle var(--dur-normal) var(--ease-enter);
+  }
+  .caret {
+    animation: blink 1s steps(1) infinite;
+  }
+  .soft-pulse {
+    animation: soft-pulse 1.2s ease-in-out infinite;
+  }
+  .progress-fill {
+    transition: transform 400ms var(--ease-standard);
+  }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .in,
+  .pop,
+  .grow-in {
+    animation: fade var(--dur-normal) ease-out backwards;
+  }
+}

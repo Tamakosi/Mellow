@@ -1,0 +1,57 @@
+{
+ "components": 71,
+ "componentSets": 20,
+ "icons": 35,
+ "instances": 1447,
+ "instanceStats": {
+  "Logo": 86,
+  "Button": 146,
+  "Badge": 25,
+  "Icons and Mel": 230,
+  "Chat bubble": 20,
+  "Chip/Question": 30,
+  "FAQ item": 25,
+  "Input": 44,
+  "Password input": 14,
+  "Checkbox": 7,
+  "Nav item": 104,
+  "Ask Mel button": 34,
+  "Avatar": 47,
+  "Chip/Setting": 55,
+  "Chip/Example": 55,
+  "Card/Start option": 44,
+  "Card/Recent deck": 44,
+  "Card/Theme": 55,
+  "Icon button": 29,
+  "Account menu": 2,
+  "Ask Mel panel": 2,
+  "Stepper step": 43,
+  "Outline section": 18,
+  "Layout option": 9,
+  "Option chip": 9,
+  "Card/Slide": 34,
+  "Slide thumbnail": 56,
+  "Toolbar button": 45,
+  "Suggestion": 25,
+  "Radio": 20,
+  "Select": 44,
+  "Save bar": 6,
+  "Toggle": 25,
+  "Input/Color code": 15
+ },
+ "missed": {
+  "Card/Slide": 4
+ },
+ "bound": 10744,
+ "textStyled": 3320,
+ "effectStyled": 171,
+ "wiring": {
+  "wired": 206,
+  "scrolls": 26
+ },
+ "flows": 5,
+ "scrollers": 16,
+ "variables": 43,
+ "layouts": 106
+}
+wrote D:\Romeo\ClaudeDesign\mellow\design\export\out\Mellow.json 6091 KB
